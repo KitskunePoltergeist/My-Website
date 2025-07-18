@@ -89,7 +89,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   await startPyodide();
 
   try {
-    await runPythonFile("program.py");     // Now run main code that imports it
+    //await runPythonFile("program.py");     // Now run main code that imports it
+    const response = await fetch("program.py");
+    const pythonCode = await response.text();
+    await pyodide.runPythonAsync(pythonCode);
   } catch (err) {
     console.error("🐍 Error running Python:", err);
   }
