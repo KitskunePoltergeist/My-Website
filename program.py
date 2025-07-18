@@ -115,8 +115,13 @@ def position_element(element, x, y):
       element.style.top = str(y) + "px"
 #HELPER FUNCTIONS END
 
+#Styles for the "Styled with Python button" in HTML, id = "made_from_python"
 def style_button():
+  #Get the button's id
   button = document.getElementById("madeFrompython")
+  #Change the text inside
+  button.innerText = "Styled with Python 🐍"
+  #Styles
   button.setAttribute("type", "button")
   button.style.backgroundColor = "#306998"
   button.style.color = "white"
@@ -125,7 +130,7 @@ def style_button():
   button.style.border = "none"
   button.style.fontWeight = "bold"
   button.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.2)"
-  button.innerText = "Styled with Python 🐍"
   button.style.marginTop = "1rem"
   button.style.marginBottom = "1rem"
+  button.styles.cursor = "pointer
 style_button()
