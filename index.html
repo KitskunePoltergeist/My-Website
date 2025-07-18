@@ -1,1 +1,144 @@
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="Neon_A_logo.webp" />
+    <title>Aidan's Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+      />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <!--PYTHON CODE: https://3a03ad1e-48d5-40e1-bf71-55b2269428a2-00-1t0k3hjy96xw6.janeway.replit.dev/program.py -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js" defer></script>
+    <noscript>
+      Hi there, it seems that your browser has JavaScript and/or Java disabled
+      currently, or does not support them. This site is supported by them, so
+      please turn them on or use a different browser for the best experience.
+    </noscript>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+        <div class="nav-left">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#hobbies">Hobbies</a></li>
+          <li><a href="#news">News</a></li>
+        </div>
+        <div class="nav-right">
+          <li>
+            <button type="button" id="colorToggle">Dark Theme</button>
+          </li>
+        </div>
+      </ul>
+    </nav>
+    <main class="container">
+      <h1
+        id="home"
+        class="typewriter blink-cursor"
+        data-text="Hi!"
+        ></h1>
+      <h3
+        class="typewriter-secondary blink-cursor"
+        data-text="My name is Aidan and this is my website. Read on about me!"
+        ></h3>
+      <details id="about">
+        <summary> About Me </summary>
+        <p>
+          I am an 11 year old who likes math, chess, and coding. Currently, I am
+          learning Python, and I have previously learned HTML, CSS, and JavaScript.
+          Chess is one of my most recent hobbies, and I am currently rated 500 ELO
+          on chess.com. Don't worry, the grind is still on! 😤
+        </p>
+        <p>
+          Coding is something I have been interested in for a while now. I have
+          been coding for about 2 years now, and this is my largest project so
+          far. I wrote the whole thing myself, and it's built out of
+          <code>HTML</code>, <code>CSS</code>, <code>JavaScript</code>, and <code>Python</code>. I am
+          currently learning <code>Python</code>.
+        </p>
+      </details>
+      <form>
+        <fieldset class="fieldsize" id="hobbies">
+          <legend id="chess"> Chess </legend>
+          <div class="image-text-wrapper">
+            <img
+              src="BRILLIANT.png"
+              alt="chess.com Brilliant Move Icon"
+              width="25%"
+              height="25%"
+              />
+            <div class="text-and-button">
+              <p>
+                I started playing chess a few months ago, and have started playing
+                more and more since. My main time control is 10+0 (Rapid), and I am
+                currently rated about 500 ELO on chess.com. I am currently working
+                on improving my tactics and endgame skills.
+              </p>
+              <div class="rating-tracker">
+                <p id="liveRating">Loading my rapid rating...</p>
+                <p>This is my <em>live</em> rating!</p>
+              </div>
+            </div>
+          </div>
+          <button>
+          <a href="https://www.chess.com" target="_blank" rel="noopener noreferrer"
+            >Click me to go to chess.com!</a
+            >
+          </button>
+          <details id="otherChesslinks">
+            <summary>Other chess.com links</summary>
+            <p> In case chess.com is blocked, here are other links. </p>
+            <pre>
+chesschesschess.com
+superhardalgebraproblems.com
+plansformyfuture.com
+justdoinghomework.com
+          </pre>
+          </details>
+        </fieldset>
+        <fieldset class="fieldsize">
+          <legend id="coding"> Coding </legend>
+          <div class="image-text-wrapper">
+            <img
+              src="codingIcon.jpeg"
+              alt="&lt;/&gt;"
+              width="25%"
+              height="25%"
+              id="codingIcon"
+            />
+            <div class="text-and-button">
+              <p>
+                I started coding in 2023, where I first learned HTML and CSS. After a
+                bit, I learned JavaScript, and I started learning Python a few weeks
+                ago. I like coding because of the unlimited possibilities there are
+                and that you can do <span>ANYTHING</span>.
+              </p>
+              <p>
+                Check out the button below that is made from Python!
+              </p>
+              <button onclick="runMyPythonCode()" id="madeFrompython">
+                If you can read this, that means your browser is still parsing Python!
+              </button>
+              <p>
+                If you're wondering how I got Python to connect with HTML, I used
+                Pyodide which basically connects Python to JavaScript which naturally connects
+                with HTML.
+              </p>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    <footer>
+      <div class="footer">
+        <p><a href="#home">Go back up?</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
