@@ -193,7 +193,7 @@ legend {
   font-size: 2.5rem;
   padding: 0.1875rem 1.4375rem;
   color: white;
-  margin-left: calc(10% + 0.625rem);
+  margin-left: 0.5rem;
   background-color: rgba(115, 149, 82, 1);
 }
 details {
@@ -307,7 +307,7 @@ body.reverse-gradient ul::after {
 /* === RESPONSIVE MEDIA QUERIES === */
 
 /* Mobile (≤600px) */
-/*@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   body {
     font-size: 1.2em;
     padding: 1rem;
@@ -332,7 +332,7 @@ body.reverse-gradient ul::after {
 }
 
 /* Tablet (601px–899px) */
-/*@media screen and (min-width: 601px) and (max-width: 899px) {
+@media screen and (min-width: 601px) and (max-width: 899px) {
   body {
     font-size: 1.5em;
   }
@@ -347,4 +347,3 @@ body.reverse-gradient ul::after {
     text-align: center;
   }
 }
-*/
