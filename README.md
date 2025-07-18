@@ -1,16 +1,20 @@
-## Hi there 👋
+# 👋 Hi there! I'm Aidan
 
-<!--
-**KitskunePoltergeist/KitskunePoltergeist** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Welcome to my GitHub profile!
 
-Here are some ideas to get you started:
+## 💻 About Me
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+I'm a passionate coder who enjoys building cool things with:
+
+- 🌐 **HTML**
+- 🎨 **CSS**
+- 🧠 **JavaScript**
+- 🐍 **Python**
+
+## 🎯 What I Love
+
+Besides coding (duh!), I also enjoy:
+
+- ♟️ Playing and studying **chess**
+- 💡 Learning new tech and tools
+- 🔧 Building personal projects
