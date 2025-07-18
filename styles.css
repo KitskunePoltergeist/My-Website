@@ -132,7 +132,7 @@ button:has(a) a:hover {
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
-  text-align: left;
+  text-align: center;
 }
 img, picture, video, canvas, svg {
   display: block;
