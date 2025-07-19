@@ -135,3 +135,42 @@ const animateConicGradient = () => {
 };
 
 animateConicGradient();
+
+  particlesJS("stars-bg", {
+    particles: {
+      number: {
+        value: 80,
+        density: { enable: true, value_area: 800 }
+      },
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: {
+        value: 0.7,
+        random: true,
+        anim: { enable: false }
+      },
+      size: {
+        value: 2,
+        random: true,
+        anim: { enable: false }
+      },
+      move: {
+        enable: true,
+        speed: 0.6,
+        direction: "none",
+        out_mode: "out"
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: true, mode: "push" }
+      },
+      modes: {
+        repulse: { distance: 100 },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
