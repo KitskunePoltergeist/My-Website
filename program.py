@@ -132,5 +132,5 @@ def style_button():
   button.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.2)"
   button.style.marginTop = "1rem"
   button.style.marginBottom = "1rem"
-  button.style.cursor = "help"
+  button.style.cursor = "default"
 style_button()
