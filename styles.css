@@ -402,3 +402,13 @@ body.reverse-gradient ul::after {
     text-align: center;
   }
 }
+
+#stars-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Push behind content */
+  background: #000;
+}
