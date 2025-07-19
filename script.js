@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (currentBg === "rgba(189, 233, 250, 1)") {
                 root.style.setProperty("--background", "rgba(12, 29, 63, 1)");
                 root.style.setProperty("--foreground", "rgba(189, 233, 250, 1)");
-                btn.textContent = "Light Theme";
+                btn.textContent = "Dark Theme";
             } else {
                 root.style.setProperty("--background", "rgba(189, 233, 250, 1)");
                 root.style.setProperty("--foreground", "rgba(12, 29, 63, 1)");
-                btn.textContent = "Dark Theme";
+                btn.textContent = "Light Theme";
             }
         });
     }
