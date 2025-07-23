@@ -421,3 +421,11 @@ body.reverse-gradient ul::after {
   z-index: -1; /* Push behind content */
   background: #000;
 }
+
+iframe {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+}
+
