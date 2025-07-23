@@ -133,4 +133,9 @@ def style_button():
   button.style.marginTop = "1rem"
   button.style.marginBottom = "1rem"
   button.style.cursor = "default"
+  button.style.userSelect = "none"
+  # Add vendor prefixes for full browser support
+  button.style.setProperty("-webkit-user-select", "none")
+  button.style.setProperty("-moz-user-select", "none")
+  button.style.setProperty("-ms-user-select", "none")
 style_button()
