@@ -429,3 +429,12 @@ iframe {
   background-color: transparent !important;
 }
 
+.chess-embed-wrapper {
+  width: 100%;
+  max-width: 700px;  /* adjust as needed */
+  height: 460px;     /* adjust height to crop */
+  overflow: hidden;
+  border-radius: 8px; /* optional rounded edges */
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25); /* optional shadow */
+}
