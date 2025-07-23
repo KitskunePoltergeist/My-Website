@@ -94,6 +94,18 @@
             >Click me to go to chess.com!</a
             >
           </button>
+            <div>
+            <h2>Check out this puzzle from a Mikhail Tal game!</h2>
+            <iframe id="13614476" 
+  allowtransparency="true" 
+  frameborder="0" 
+  style="width:100%; border:none; margin:0; padding:0; background-color: transparent; display: block;"
+  src="https://www.chess.com/emboard?id=13614476">
+</iframe>
+            <script nonce="chesscom-diagram">
+              window.addEventListener("message",e=>{e['data']&&"13614476"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+37}px`)});
+            </script>
+          </div>
           <details id="otherChesslinks">
             <summary>Other chess.com links</summary>
             <p> In case chess.com is blocked, here are other links. </p>
@@ -103,19 +115,6 @@ superhardalgebraproblems.com
 plansformyfuture.com
 justdoinghomework.com
           </pre>
-          <div>
-            <h2>Check out this puzzle from a Mikhail Tal game!</h2>
-            <iframe id="13614476" 
-              allowtransparency="true" 
-              frameborder="0" 
-              style="width:100%;
-              border:none;" 
-              src="https://www.chess.com/emboard?id=13614476">
-              </iframe>
-            <script nonce="chesscom-diagram">
-              window.addEventListener("message",e=>{e['data']&&"13614476"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+37}px`)});
-            </script>
-          </div>
           </details>
         </fieldset>
         <fieldset class="fieldsize">
