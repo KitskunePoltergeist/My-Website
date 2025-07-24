@@ -125,6 +125,8 @@ ul::after {
 li {
   display: block;
   user-select: none;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 li a {
