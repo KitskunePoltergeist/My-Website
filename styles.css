@@ -1,20 +1,35 @@
-/* === RESETS AND BASE STYLES === */
 :root {
-  --foreground: rgba(189, 233, 250, 1);  /* Light blue text */
-  --background: rgba(12, 29, 63, 1);     /* Dark blue background */
+  --foreground: rgba(189, 233, 250, 1);
+  --background: rgba(12, 29, 63, 1);
   cursor: default;
   scroll-behavior: smooth;
   text-align: center;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-html,
+::selection {
+  background-color: rgba(255, 204, 0, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+::-moz-selection {
+  background-color: rgba(255, 204, 0, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
 body {
+  color: var(--background);
+  font-family: "Inter", DM Sans, sans-serif;
+  font-size: 1.8em;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -24,21 +39,22 @@ body {
   z-index: 0;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
   margin: 0;
 }
 
-input,
-button,
-textarea,
-select {
+p {
+  padding: 0;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+input, button, textarea, select {
   font: inherit;
 }
 
@@ -53,54 +69,6 @@ ul {
   justify-content: center;
   gap: 2rem;
 }
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-  padding: 0.9375rem;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-/* === BASE TYPOGRAPHY === */
-
-body {
-  color: var(--foreground);
-  background-color: var(--background);
-  font-family: "Inter", DM Sans, sans-serif;
-  font-size: 1.8em;
-  line-height: 1.4;
-  -webkit-font-smoothing: antialiased;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-p {
-  padding: 0;
-  text-align: center;
-  text-wrap: pretty;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
-}
-
-/* === SELECTION COLORS === */
-
-::selection {
-  background-color: rgba(255, 204, 0, 1);
-  color: rgba(0, 0, 0, 1);
-}
-
-::-moz-selection {
-  background-color: rgba(255, 204, 0, 1);
-  color: rgba(0, 0, 0, 1);
-}
-
-/* === NAVIGATION & MENU === */
 
 ul::after {
   content: "";
@@ -125,8 +93,6 @@ ul::after {
 li {
   display: block;
   user-select: none;
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
 li a {
@@ -142,8 +108,6 @@ li a:hover {
   background-color: rgba(17, 17, 17, 1);
   color: rgba(255, 204, 0, 1);
 }
-
-/* === BUTTONS === */
 
 button {
   cursor: pointer;
@@ -176,34 +140,37 @@ button:has(a) a:hover {
   color: rgba(255, 204, 0, 1);
 }
 
-/* === THEME TOGGLE BUTTON === */
-
 #colorToggle {
   display: block;
-  color: var(--foreground);
+  color: rgba(255, 255, 255, 1);
   text-align: center;
   padding: 0.875rem 1rem;
   background: none;
-  border: 2px solid var(--foreground);
+  border: none;
   font-size: inherit;
   min-width: max-content;
   white-space: nowrap;
   align-items: center;
   transition: background-color 0.3s ease, color 0.3s ease;
-  border-radius: 6px;
-  cursor: pointer;
-  margin: 1rem auto;
 }
 
 #colorToggle:hover {
-  background-color: var(--foreground);
-  color: var(--background);
+  background-color: rgba(17, 17, 17, 1);
+  color: rgba(255, 204, 0, 1);
 }
 
 .fieldsize {
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  padding: 0.9375rem;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .image-text-wrapper {
@@ -222,8 +189,7 @@ button:has(a) a:hover {
   text-align: center;
 }
 
-.nav-left,
-.nav-right {
+.nav-left, .nav-right {
   display: contents;
 }
 
@@ -232,8 +198,7 @@ button:has(a) a:hover {
   100% { --angle: 360deg; }
 }
 
-fieldset,
-details {
+fieldset, details {
   --angle: 120deg;
   border: 3px solid transparent;
   border-image: conic-gradient(
@@ -257,8 +222,7 @@ details {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-fieldset:hover,
-details:hover {
+fieldset:hover, details:hover {
   transform: scale(1.02);
   box-shadow: 0 0 15px rgba(252, 176, 69, 0.6);
 }
@@ -408,7 +372,6 @@ body.reverse-gradient ul::after {
 }
 
 /* === RESPONSIVE MEDIA QUERIES === */
-
 @media screen and (max-width: 600px) {
   body {
     font-size: 1.2em;
@@ -449,8 +412,6 @@ body.reverse-gradient ul::after {
   }
 }
 
-/* === BACKGROUND & EMBEDS === */
-
 #stars-bg {
   position: fixed;
   top: 0;
@@ -470,15 +431,10 @@ iframe {
 
 .chess-embed-wrapper {
   width: 100%;
-  max-width: 700px;
-  height: 460px;
+  max-width: 700px;  /* adjust as needed */
+  height: 460px;     /* adjust height to crop */
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 8px; /* optional rounded edges */
   margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.25);
-}
-
-img[alt]{
-  font-color: var(--foreground);
-  font-size: inherit;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25); /* optional shadow */
 }
