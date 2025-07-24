@@ -1,3 +1,5 @@
+/* === RESET === */
+
 :root {
   --foreground: rgba(189, 233, 250, 1);
   --background: rgba(12, 29, 63, 1);
@@ -6,9 +8,72 @@
   text-align: center;
 }
 
-*, *::before, *::after {
+:where(*,
+*::before,
+*::after) {
   box-sizing: border-box;
 }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+:where(p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6) {
+  overflow-wrap: break-word;
+  margin: 0;
+}
+
+:where(p) {
+  padding: 0;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+:where(h1,
+h2, 
+h3,
+h4,
+h5,
+h6) {
+  text-wrap: balance;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+:where(img,
+picture,
+video,
+canvas,
+svg) {
+  display: block;
+  max-width: 100%;
+  padding: 0.9375rem;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@supports()
+
+/* === RESET ENDS === */
+/* === SELECTION === */
 
 ::selection {
   background-color: rgba(255, 204, 0, 1);
@@ -20,6 +85,9 @@
   color: rgba(0, 0, 0, 1);
 }
 
+/* === SELECTION ENDS === */
+/* === BODY STYLES === */
+
 body {
   color: var(--foreground);
   font-family: "Inter", DM Sans, sans-serif;
@@ -29,33 +97,133 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  overflow-x: hidden;
-  position: relative;
-  z-index: 0;
-}
+/* === BODY STYLES ENDS === */
+/* === ID SELECTORS === */
 
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-  margin: 0;
-}
-
-p {
-  padding: 0;
+#colorToggle {
+  display: block;
+  color: rgba(255, 255, 255, 1);
   text-align: center;
-  text-wrap: pretty;
+  padding: 0.875rem 1rem;
+  background: none;
+  border: none;
+  font-size: inherit;
+  min-width: max-content;
+  white-space: nowrap;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
+#colorToggle:hover {
+  background-color: rgba(17, 17, 17, 1);
+  color: rgba(255, 204, 0, 1);
 }
 
-input, button, textarea, select {
-  font: inherit;
+#chess {
+  background-color: rgba(115, 149, 82, 1);
+}
+
+#coding {
+  background-color: rgba(255, 8, 0, 1);
+}
+
+#codingIcon {
+  border-radius: 50%;
+}
+
+#stars-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #000;
+}
+
+/* === ID SELECTORS END === */
+/* === OTHER STYLES === */
+
+.fieldsize {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.image-text-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.625rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.image-text-wrapper p {
+  margin-left: 10%;
+  font-size: 1em;
+  text-align: center;
+}
+
+.nav-left, .nav-right {
+  display: contents;
+}
+
+.rating-tracker {
+  margin-top: 1rem;
+  font-size: 1em;
+  margin-bottom: 1rem;
+}
+
+.typewriter, .typewriter-secondary {
+  white-space: nowrap;
+  overflow: hidden;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.blink-cursor {
+  border-right: 2px solid var(--foreground) !important;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  font-size: 2rem;
+  margin-top: 2rem;
+  background-color: rgba(51, 51, 51, 1);
+  transition: background-color 0.3s ease;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  background-color: rgba(51, 51, 51, 1);
+  padding: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer a:hover {
+  background-color: rgba(17, 17, 17, 1);
+  color: rgba(255, 204, 0, 1);
+}
+
+span {
+  text-shadow: 2px 2px 5px rgba(252, 137, 77, 1);
+}
+
+.chess-embed-wrapper {
+  width: 100%;
+  max-width: 700px;
+  height: 460px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
 }
 
 ul {
@@ -140,64 +308,6 @@ button:has(a) a:hover {
   color: rgba(255, 204, 0, 1);
 }
 
-#colorToggle {
-  display: block;
-  color: rgba(255, 255, 255, 1);
-  text-align: center;
-  padding: 0.875rem 1rem;
-  background: none;
-  border: none;
-  font-size: inherit;
-  min-width: max-content;
-  white-space: nowrap;
-  align-items: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#colorToggle:hover {
-  background-color: rgba(17, 17, 17, 1);
-  color: rgba(255, 204, 0, 1);
-}
-
-.fieldsize {
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-  padding: 0.9375rem;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-.image-text-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.625rem;
-  width: 100%;
-  transition: all 0.3s ease;
-}
-
-.image-text-wrapper p {
-  margin-left: 10%;
-  font-size: 1em;
-  text-align: center;
-}
-
-.nav-left, .nav-right {
-  display: contents;
-}
-
-@keyframes borderRotate {
-  0% { --angle: 0deg; }
-  100% { --angle: 360deg; }
-}
-
 fieldset, details {
   --angle: 120deg;
   border: 3px solid transparent;
@@ -274,30 +384,6 @@ details[open] summary::after {
   transform: translateY(-50%) rotate(90deg);
 }
 
-footer {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem;
-  font-size: 2rem;
-  margin-top: 2rem;
-  background-color: rgba(51, 51, 51, 1);
-  transition: background-color 0.3s ease;
-}
-
-footer a {
-  color: white;
-  text-decoration: none;
-  background-color: rgba(51, 51, 51, 1);
-  padding: 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-footer a:hover {
-  background-color: rgba(17, 17, 17, 1);
-  color: rgba(255, 204, 0, 1);
-}
-
 code {
   font-family: "Fira Code", monospace;
   background-color: var(--foreground);
@@ -306,39 +392,22 @@ code {
   padding: 0 0.2em;
 }
 
-span {
-  text-shadow: 2px 2px 5px rgba(252, 137, 77, 1);
+iframe {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: transparent !important;
 }
 
-#chess {
-  background-color: rgba(115, 149, 82, 1);
+img[alt],
+img[alt = ""] {
+  font-family: inherit;
+  font-size: 1rem;
+  font-decoration: none;
 }
 
-#coding {
-  background-color: rgba(255, 8, 0, 1);
-}
-
-#codingIcon {
-  border-radius: 50%;
-}
-
-.rating-tracker {
-  margin-top: 1rem;
-  font-size: 1em;
-  margin-bottom: 1rem;
-}
-
-.typewriter, .typewriter-secondary {
-  white-space: nowrap;
-  overflow: hidden;
-  width: fit-content;
-  margin: 0 auto;
-}
-
-.blink-cursor {
-  border-right: 2px solid var(--foreground) !important;
-  animation: blink-caret 0.75s step-end infinite;
-}
+/* === OTHER STYLES END === */
+/* === KEYFRAMES ANIMATIONS === */
 
 @keyframes blink-caret {
   from, to {
@@ -367,11 +436,14 @@ span {
   }
 }
 
-body.reverse-gradient ul::after {
-  animation: moveGradientReverse 15s linear infinite;
+@keyframes borderRotate {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
 }
 
-/* === RESPONSIVE MEDIA QUERIES === */
+/* === KEYFRAMES ANIMATIONS END === */
+/* === MEDIA QUERIES === */
+
 @media screen and (max-width: 600px) {
   body {
     font-size: 1.2em;
@@ -412,29 +484,11 @@ body.reverse-gradient ul::after {
   }
 }
 
-#stars-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Push behind content */
-  background: #000;
+/* === MEDIA QUERIES END === */
+/* === CONDITIONAL CLASSES === */
+
+body.reverse-gradient ul::after {
+  animation: moveGradientReverse 15s linear infinite;
 }
 
-iframe {
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  background-color: transparent !important;
-}
-
-.chess-embed-wrapper {
-  width: 100%;
-  max-width: 700px;  /* adjust as needed */
-  height: 460px;     /* adjust height to crop */
-  overflow: hidden;
-  border-radius: 8px; /* optional rounded edges */
-  margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.25); /* optional shadow */
-}
+/* === CONDITIONAL CLASSES END === */
