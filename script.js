@@ -1,116 +1,97 @@
 let pyodide;
 
 async function startPyodide() {
-  pyodide = await loadPyodide();
-  console.log("✅ Pyodide is ready!");
+    pyodide = await loadPyodide();
+    console.log("✅ Pyodide is ready!");
 }
 
 async function runPythonFile(filename) {
-  const response = await fetch(filename);
-  const code = await response.text();
-  await pyodide.runPythonAsync(code);
+    const response = await fetch(filename);
+    const code = await response.text();
+    await pyodide.runPythonAsync(code);
 }
 
 async function runMyPythonCode() {
-  const result = await pyodide.runPythonAsync(`
+    const result = await pyodide.runPythonAsync(
 def square(x):
     return x * x
 
 square(7)
-  `);
-  console.log("Python result:", result);
+);
+    console.log("Python result:", result);
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const root = document.documentElement;
-  const btn = document.getElementById("colorToggle");
+    const root = document.documentElement;
+    const btn = document.getElementById("colorToggle");
 
-  // Your theme colors
-  const darkTheme = {
-    background: "rgba(12, 29, 63, 1)",      // dark blue
-    foreground: "rgba(189, 233, 250, 1)",   // light blue
-  };
+    if (btn) {
+        btn.addEventListener("click", () => {
+            const currentBg = getComputedStyle(root).getPropertyValue("--background").trim();
 
-  const lightTheme = {
-    background: "rgba(189, 233, 250, 1)",   // light blue
-    foreground: "rgba(12, 29, 63, 1)",      // dark blue
-  };
-
-  // Set default dark theme on load
-  root.style.setProperty("--background", darkTheme.background);
-  root.style.setProperty("--foreground", darkTheme.foreground);
-  if (btn) btn.textContent = "Light Theme";
-
-  if (btn) {
-    btn.addEventListener("click", () => {
-      const currentBg = getComputedStyle(root).getPropertyValue("--background").trim();
-
-      if (currentBg === lightTheme.background) {
-        // Switch to dark theme
-        root.style.setProperty("--background", darkTheme.background);
-        root.style.setProperty("--foreground", darkTheme.foreground);
-        btn.textContent = "Light Theme";
-      } else {
-        // Switch to light theme
-        root.style.setProperty("--background", lightTheme.background);
-        root.style.setProperty("--foreground", lightTheme.foreground);
-        btn.textContent = "Dark Theme";
-      }
-    });
-  }
-
-  // Your existing typewriter code
-  function typeWriterEffect(element, text, speed = 100, callback = null) {
-    let index = 0;
-    element.textContent = "";
-
-    function type() {
-      if (index < text.length) {
-        element.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, speed);
-      } else if (callback) {
-        callback();
-      }
+            if (currentBg === "rgba(189, 233, 250, 1)") {
+                root.style.setProperty("--background", "rgba(12, 29, 63, 1)");
+                root.style.setProperty("--foreground", "rgba(189, 233, 250, 1)");
+                btn.textContent = "Light Theme";
+                btn.textContent = "Dark Theme";
+            } else {
+                root.style.setProperty("--background", "rgba(189, 233, 250, 1)");
+                root.style.setProperty("--foreground", "rgba(12, 29, 63, 1)");
+                btn.textContent = "Dark Theme";
+                btn.textContent = "Light Theme";
+            }
+        });
     }
-    type();
-  }
 
-  const h1 = document.querySelector(".typewriter");
-  const h3 = document.querySelector(".typewriter-secondary");
+    function typeWriterEffect(element, text, speed = 100, callback = null) {
+        let index = 0;
+        element.textContent = "";
 
-  if (h1 && h3) {
-    const h1Text = h1.getAttribute("data-text");
-    const h3Text = h3.getAttribute("data-text");
+        function type() {
+            if (index < text.length) {
+                element.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, speed);
+            } else if (callback) {
+                callback();
+            }
+        }
+        type();
+    }
 
-    typeWriterEffect(h1, h1Text, 150, () => {
-      typeWriterEffect(h3, h3Text, 50);
-    });
-  }
+    const h1 = document.querySelector(".typewriter");
+    const h3 = document.querySelector(".typewriter-secondary");
 
-  setTimeout(() => {
-    document.querySelectorAll(".blink-cursor").forEach(el => {
-      el.classList.remove("blink-cursor");
-    });
-  }, 2000);
+    if (h1 && h3) {
+        const h1Text = h1.getAttribute("data-text");
+        const h3Text = h3.getAttribute("data-text");
 
-  // Fetch chess rating
-  fetch('https://api.chess.com/pub/player/chessking43409/stats')
-    .then(response => response.json())
-    .then(data => {
-      const rapidRating = data.chess_rapid?.last?.rating;
-      document.getElementById('liveRating').textContent =
-        rapidRating ? `Current Rapid Rating: ${rapidRating}` : 'Could not load rating.';
-    })
-    .catch(() => {
-      document.getElementById('liveRating').textContent = 'Could not load rating.';
-    });
+        typeWriterEffect(h1, h1Text, 150, () => {
+            typeWriterEffect(h3, h3Text, 50);
+        });
+    }
 
-  // Pyodide init
+    setTimeout(() => {
+        document.querySelectorAll(".blink-cursor").forEach(el => {
+            el.classList.remove("blink-cursor");
+        });
+    }, 2000);
+
+    fetch('https://api.chess.com/pub/player/chessking43409/stats')
+        .then(response => response.json())
+        .then(data => {
+            const rapidRating = data.chess_rapid?.last?.rating;
+            document.getElementById('liveRating').textContent =
+                rapidRating ? Current Rapid Rating: ${rapidRating} : 'Could not load rating.';
+        })
+        .catch(() => {
+            document.getElementById('liveRating').textContent = 'Could not load rating.';
+        });
+
   await startPyodide();
 
   try {
-    // await runPythonFile("program.py");
+    //await runPythonFile("program.py");     // Now run main code that imports it
     const response = await fetch("program.py");
     const pythonCode = await response.text();
     await pyodide.runPythonAsync(pythonCode);
@@ -118,41 +99,80 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("🐍 Error running Python:", err);
   }
 
-  // Python button listener
-  const pyBtn = document.getElementById("madeFrompython");
-  if (pyBtn) {
-    pyBtn.addEventListener("click", () => {
-      runMyPythonCode();
-    });
-  }
+
+    const pyBtn = document.getElementById("madeFrompython");
+    if (pyBtn) {
+        pyBtn.addEventListener("click", () => {
+            runMyPythonCode();
+        });
+    }
 });
 
 let typed = "";
 document.addEventListener("keydown", (e) => {
-  if (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA") return;
+    if (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA") return;
 
-  typed += e.key.toLowerCase();
-  if (typed.length > 7) typed = typed.slice(-7);
+    typed += e.key.toLowerCase();
+    if (typed.length > 7) typed = typed.slice(-7);
 
-  if (typed === "awesome") {
-    document.body.classList.toggle("reverse-gradient");
-    typed = "";
-  }
+    if (typed === "awesome") {
+        document.body.classList.toggle("reverse-gradient");
+        typed = "";
+    }
 });
 
 const animateConicGradient = () => {
-  const elements = document.querySelectorAll('fieldset, details');
-  let angle = 0;
+    const elements = document.querySelectorAll('fieldset, details');
+    let angle = 0;
 
-  const update = () => {
-    angle = (angle + 1) % 360;
-    elements.forEach(el => {
-      el.style.setProperty('--angle', `${angle}deg`);
-    });
-    requestAnimationFrame(update);
-  };
+    const update = () => {
+        angle = (angle + 1) % 360;
+        elements.forEach(el => {
+            el.style.setProperty('--angle', ${angle}deg);
+        });
+        requestAnimationFrame(update);
+    };
 
-  update();
+    update();
 };
 
 animateConicGradient();
+
+  particlesJS("stars-bg", {
+    particles: {
+      number: {
+        value: 80,
+        density: { enable: true, value_area: 800 }
+      },
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: {
+        value: 0.7,
+        random: true,
+        anim: { enable: false }
+      },
+      size: {
+        value: 2,
+        random: true,
+        anim: { enable: false }
+      },
+      move: {
+        enable: true,
+        speed: 0.6,
+        direction: "none",
+        out_mode: "out"
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: true, mode: "push" }
+      },
+      modes: {
+        repulse: { distance: 100 },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
