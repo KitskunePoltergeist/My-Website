@@ -1,6 +1,6 @@
 :root {
-  --foreground: rgba(189, 233, 250, 1);
-  --background: rgba(12, 29, 63, 1);
+  --foreground: rgba(189, 233, 250, 1);  /* Light blue text */
+  --background: rgba(12, 29, 63, 1);     /* Dark blue background */
   cursor: default;
   scroll-behavior: smooth;
   text-align: center;
@@ -21,7 +21,8 @@
 }
 
 body {
-  color: var(--background);
+  color: var(--foreground);
+  background-color: var(--background);
   font-family: "Inter", DM Sans, sans-serif;
   font-size: 1.8em;
   line-height: 1.4;
@@ -140,23 +141,27 @@ button:has(a) a:hover {
   color: rgba(255, 204, 0, 1);
 }
 
+/* Your theme toggle button styling */
 #colorToggle {
   display: block;
-  color: rgba(255, 255, 255, 1);
+  color: var(--foreground);
   text-align: center;
   padding: 0.875rem 1rem;
   background: none;
-  border: none;
+  border: 2px solid var(--foreground);
   font-size: inherit;
   min-width: max-content;
   white-space: nowrap;
   align-items: center;
   transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 1rem auto;
 }
 
 #colorToggle:hover {
-  background-color: rgba(17, 17, 17, 1);
-  color: rgba(255, 204, 0, 1);
+  background-color: var(--foreground);
+  color: var(--background);
 }
 
 .fieldsize {
@@ -431,10 +436,10 @@ iframe {
 
 .chess-embed-wrapper {
   width: 100%;
-  max-width: 700px;  /* adjust as needed */
-  height: 460px;     /* adjust height to crop */
+  max-width: 700px;
+  height: 460px;
   overflow: hidden;
-  border-radius: 8px; /* optional rounded edges */
+  border-radius: 8px;
   margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.25); /* optional shadow */
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
 }
