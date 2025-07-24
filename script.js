@@ -25,22 +25,26 @@ document.addEventListener("DOMContentLoaded", async () => {
     const root = document.documentElement;
     const btn = document.getElementById("colorToggle");
 
+    // === THEME TOGGLE ===
     if (btn) {
         btn.addEventListener("click", () => {
             const currentBg = getComputedStyle(root).getPropertyValue("--background").trim();
 
             if (currentBg === "rgba(189, 233, 250, 1)") {
+                // Currently light theme → switch to dark
                 root.style.setProperty("--background", "rgba(12, 29, 63, 1)");
                 root.style.setProperty("--foreground", "rgba(189, 233, 250, 1)");
-                btn.textContent = "Dark Theme";
+                btn.textContent = "Light Theme";
             } else {
+                // Currently dark theme → switch to light
                 root.style.setProperty("--background", "rgba(189, 233, 250, 1)");
                 root.style.setProperty("--foreground", "rgba(12, 29, 63, 1)");
-                btn.textContent = "Light Theme";
+                btn.textContent = "Dark Theme";
             }
         });
     }
 
+    // === TYPEWRITER ===
     function typeWriterEffect(element, text, speed = 100, callback = null) {
         let index = 0;
         element.textContent = "";
@@ -75,6 +79,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }, 2000);
 
+    // === CHESS.COM RATING ===
     fetch('https://api.chess.com/pub/player/chessking43409/stats')
         .then(response => response.json())
         .then(data => {
@@ -86,17 +91,16 @@ document.addEventListener("DOMContentLoaded", async () => {
             document.getElementById('liveRating').textContent = 'Could not load rating.';
         });
 
-  await startPyodide();
+    // === PYODIDE + PYTHON ===
+    await startPyodide();
 
-  try {
-    //await runPythonFile("program.py");     // Now run main code that imports it
-    const response = await fetch("program.py");
-    const pythonCode = await response.text();
-    await pyodide.runPythonAsync(pythonCode);
-  } catch (err) {
-    console.error("🐍 Error running Python:", err);
-  }
-
+    try {
+        const response = await fetch("program.py");
+        const pythonCode = await response.text();
+        await pyodide.runPythonAsync(pythonCode);
+    } catch (err) {
+        console.error("🐍 Error running Python:", err);
+    }
 
     const pyBtn = document.getElementById("madeFrompython");
     if (pyBtn) {
@@ -106,6 +110,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
+// === EASTER EGG: "awesome" unlocks gradient reverse ===
 let typed = "";
 document.addEventListener("keydown", (e) => {
     if (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA") return;
@@ -119,6 +124,7 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+// === ANIMATED CONIC BORDER ===
 const animateConicGradient = () => {
     const elements = document.querySelectorAll('fieldset, details');
     let angle = 0;
@@ -133,44 +139,44 @@ const animateConicGradient = () => {
 
     update();
 };
-
 animateConicGradient();
 
-  particlesJS("stars-bg", {
+// === PARTICLE.JS BACKGROUND ===
+particlesJS("stars-bg", {
     particles: {
-      number: {
-        value: 80,
-        density: { enable: true, value_area: 800 }
-      },
-      color: { value: "#ffffff" },
-      shape: { type: "circle" },
-      opacity: {
-        value: 0.7,
-        random: true,
-        anim: { enable: false }
-      },
-      size: {
-        value: 2,
-        random: true,
-        anim: { enable: false }
-      },
-      move: {
-        enable: true,
-        speed: 0.6,
-        direction: "none",
-        out_mode: "out"
-      }
+        number: {
+            value: 80,
+            density: { enable: true, value_area: 800 }
+        },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: {
+            value: 0.7,
+            random: true,
+            anim: { enable: false }
+        },
+        size: {
+            value: 2,
+            random: true,
+            anim: { enable: false }
+        },
+        move: {
+            enable: true,
+            speed: 0.6,
+            direction: "none",
+            out_mode: "out"
+        }
     },
     interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: { enable: true, mode: "repulse" },
-        onclick: { enable: true, mode: "push" }
-      },
-      modes: {
-        repulse: { distance: 100 },
-        push: { particles_nb: 4 }
-      }
+        detect_on: "canvas",
+        events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+            repulse: { distance: 100 },
+            push: { particles_nb: 4 }
+        }
     },
     retina_detect: true
-  });
+});
