@@ -21,7 +21,7 @@
 }
 
 body {
-  color: var(--foreground);
+  color: var(--background);
   font-family: "Inter", DM Sans, sans-serif;
   font-size: 1.8em;
   line-height: 1.4;
