@@ -12,12 +12,12 @@ async function runPythonFile(filename) {
 }
 
 async function runMyPythonCode() {
-    const result = await pyodide.runPythonAsync(
+    const result = await pyodide.runPythonAsync(`
 def square(x):
     return x * x
 
 square(7)
-);
+`);
     console.log("Python result:", result);
 }
 
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         .then(data => {
             const rapidRating = data.chess_rapid?.last?.rating;
             document.getElementById('liveRating').textContent =
-                rapidRating ? Current Rapid Rating: ${rapidRating} : 'Could not load rating.';
+                rapidRating ? `Current Rapid Rating: ${rapidRating}` : 'Could not load rating.';
         })
         .catch(() => {
             document.getElementById('liveRating').textContent = 'Could not load rating.';
@@ -128,7 +128,7 @@ const animateConicGradient = () => {
     const update = () => {
         angle = (angle + 1) % 360;
         elements.forEach(el => {
-            el.style.setProperty('--angle', ${angle}deg);
+            el.style.setProperty('--angle', `${angle}deg`);
         });
         requestAnimationFrame(update);
     };
