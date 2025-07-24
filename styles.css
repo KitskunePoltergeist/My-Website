@@ -1,6 +1,6 @@
 :root {
-  --foreground: rgba(12, 29, 63, 1); /* dark blue text */
-  --background: rgba(189, 233, 250, 1); /* light blue background */
+  --foreground: rgba(189, 233, 250, 1);
+  --background: rgba(12, 29, 63, 1);
   cursor: default;
   scroll-behavior: smooth;
   text-align: center;
