@@ -141,8 +141,25 @@ body {
   z-index: -1;
 }
 
+#cool_coding_effects {
+  background-image: linear-gradient(135deg, 
+    #3a0ca3, #4361ee, #3a86ff, #8338ec, #ff006e);
+  background-clip: text;
+  -webkit-background-clip: text; /* For Chrome/Safari/Edge */
+  color: transparent;
+  font-size: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-block;
+}
+
 /* === ID SELECTORS END === */
 /* === OTHER STYLES === */
+.coding_effects_text {
+  margin-left: 10%;
+  margin-right: 10%;
+}
 
 .fieldsize {
   width: 80%;
@@ -186,19 +203,6 @@ body {
 .blink-cursor {
   border-right: 2px solid var(--foreground) !important;
   animation: blink-caret 0.75s step-end infinite;
-}
-
-#cool_coding_effects {
-  background-image: linear-gradient(135deg, 
-    #3a0ca3, #4361ee, #3a86ff, #8338ec, #ff006e);
-  background-clip: text;
-  -webkit-background-clip: text; /* For Chrome/Safari/Edge */
-  color: transparent;
-  font-size: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 1;
-  display: inline-block;
 }
 
 footer {
