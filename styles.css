@@ -402,8 +402,9 @@ iframe {
 img[alt],
 img[alt = ""] {
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 1em;
   font-decoration: none;
+  font-weight: bold;
 }
 
 /* === OTHER STYLES END === */
