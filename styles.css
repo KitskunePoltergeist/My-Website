@@ -188,7 +188,7 @@ body {
   animation: blink-caret 0.75s step-end infinite;
 }
 
-.cool_coding_effects {
+#cool_coding_effects {
   background-image: linear-gradient(135deg, 
   #3a0ca3,   /* deep purple */
   #4361ee,   /* royal blue */
