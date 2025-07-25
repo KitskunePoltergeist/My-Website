@@ -76,12 +76,12 @@ svg) {
 /* === SELECTION === */
 
 ::selection {
-  background-color: rgba(255, 204, 0, 1);
+  background-color: rgba(255, 204, 0, 1) !important;
   color: rgba(0, 0, 0, 1);
 }
 
 ::-moz-selection {
-  background-color: rgba(255, 204, 0, 1);
+  background-color: rgba(255, 204, 0, 1) !important;
   color: rgba(0, 0, 0, 1);
 }
 
@@ -186,6 +186,22 @@ body {
 .blink-cursor {
   border-right: 2px solid var(--foreground) !important;
   animation: blink-caret 0.75s step-end infinite;
+}
+
+.cool_coding_effects {
+  background-image: linear-gradient(135deg, 
+  #3a0ca3,   /* deep purple */
+  #4361ee,   /* royal blue */
+  #3a86ff,   /* electric blue */
+  #8338ec,   /* vivid violet */
+  #ff006e    /* neon pink/red */
+);
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
 footer {
