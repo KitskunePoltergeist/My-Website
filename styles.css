@@ -154,6 +154,11 @@ body {
   display: inline-block;
 }
 
+#dinosaurs {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 /* === ID SELECTORS END === */
 /* === OTHER STYLES === */
 .coding_effects_text {
